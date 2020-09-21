@@ -4,12 +4,12 @@ namespace WeatherStation.WeatherData
 {
     public class StatsDisplay : Observer.IObserver<SWeatherInfo>
     {
+        private StaticticalData temperatureData = new StaticticalData();
+        private StaticticalData humidityData = new StaticticalData();
+        private StaticticalData pressureData = new StaticticalData();
+
         public void Update(SWeatherInfo data)
         {
-            StaticticalData temperatureData = new StaticticalData();
-            StaticticalData humidityData = new StaticticalData();
-            StaticticalData pressureData = new StaticticalData();
-
             Console.WriteLine($"Temperature: {temperatureData.GetStatisticalData(data.temperature)}");
             Console.WriteLine($"Humidity: {humidityData.GetStatisticalData(data.humidity)}");
             Console.WriteLine($"Pressure: {pressureData.GetStatisticalData(data.pressure)}");

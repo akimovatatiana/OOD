@@ -2,7 +2,7 @@
 
 namespace WeatherStationTests
 {
-    class TestUpdateObserver : WeatherStation.Observer.IObserver<SWeatherInfo>
+    public class TestUpdateObserver : WeatherStation.Observer.IObserver<SWeatherInfo>
     {
         private readonly WeatherStation.Observer.IObservable<SWeatherInfo> _observable;
 

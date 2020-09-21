@@ -3,7 +3,7 @@ using WeatherStation.WeatherData;
 
 namespace WeatherStationTests
 {
-    class TestPriorityObserver : WeatherStation.Observer.IObserver<SWeatherInfo>
+    public class TestPriorityObserver : WeatherStation.Observer.IObserver<SWeatherInfo>
     {
         private readonly int _priority;
 
