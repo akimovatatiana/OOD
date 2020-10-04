@@ -5,7 +5,11 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherStation", "WeatherStation\WeatherStation.csproj", "{7A389B73-7124-455F-8B7A-26FF3D136108}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherStationTests", "WeatherStationTests\WeatherStationTests.csproj", "{157C1902-9F15-4227-8984-92F731A8F8EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherStationTests", "WeatherStationTests\WeatherStationTests.csproj", "{157C1902-9F15-4227-8984-92F731A8F8EF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherStationDuo", "WeatherStationDuo\WeatherStationDuo.csproj", "{35076ADB-A899-4BEA-8F76-D163384C8D76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherStationDuoTests", "WeatherStationDuoTests\WeatherStationDuoTests.csproj", "{88AE2036-1D27-4CC5-8930-BFE5110E3896}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{157C1902-9F15-4227-8984-92F731A8F8EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{157C1902-9F15-4227-8984-92F731A8F8EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{157C1902-9F15-4227-8984-92F731A8F8EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35076ADB-A899-4BEA-8F76-D163384C8D76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35076ADB-A899-4BEA-8F76-D163384C8D76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35076ADB-A899-4BEA-8F76-D163384C8D76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35076ADB-A899-4BEA-8F76-D163384C8D76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88AE2036-1D27-4CC5-8930-BFE5110E3896}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88AE2036-1D27-4CC5-8930-BFE5110E3896}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88AE2036-1D27-4CC5-8930-BFE5110E3896}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88AE2036-1D27-4CC5-8930-BFE5110E3896}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
