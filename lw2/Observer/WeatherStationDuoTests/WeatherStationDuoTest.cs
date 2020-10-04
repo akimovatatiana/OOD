@@ -11,8 +11,8 @@ namespace WeatherStationDuoTests
         [TestMethod]
         public void NotifyObservers_WithWeatherStationType()
         {
-            var weatherDataIn = new CWeatherData(WeatherStationType.IN);
-            var weatherDataOut = new CWeatherData(WeatherStationType.OUT);
+            var weatherDataIn = new CWeatherData();
+            var weatherDataOut = new CWeatherData();
 
             var display = new DisplayDuo(weatherDataIn, weatherDataOut);
 

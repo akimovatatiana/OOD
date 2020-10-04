@@ -7,12 +7,6 @@ namespace WeatherStationDuo.WeatherData
 		private double _temperature;
 		private double _humidity;
 		private double _pressure;
-		private readonly WeatherStationType _stationType;
-
-		public CWeatherData(WeatherStationType stationType)
-		{
-			_stationType = stationType;
-		}
 
 		public double GetTemperature()
 		{
@@ -27,11 +21,6 @@ namespace WeatherStationDuo.WeatherData
 		public double GetPressure()
 		{
 			return _pressure;
-		}
-
-		public WeatherStationType GetStationType()
-		{
-			return _stationType;
 		}
 
 		public void MeasurementsChanged()
