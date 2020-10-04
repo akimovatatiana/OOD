@@ -1,6 +1,6 @@
 ﻿namespace WeatherStation.WeatherData
 {
-    public class StaticticalData
+    public class StatisticalData
     {
         private double _min = double.PositiveInfinity;
         private double _max = double.NegativeInfinity;

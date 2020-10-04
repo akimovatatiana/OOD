@@ -4,9 +4,9 @@ namespace WeatherStationDuo.WeatherData
 {
     public class WeatherStatistics
     {
-        private StaticticalData _temperatureData = new StaticticalData();
-        private StaticticalData _humidityData = new StaticticalData();
-        private StaticticalData _pressureData = new StaticticalData();
+        private readonly StatisticalData _temperatureData = new StatisticalData();
+        private readonly StatisticalData _humidityData = new StatisticalData();
+        private readonly StatisticalData _pressureData = new StatisticalData();
 
         public void PrintStatistics(SWeatherInfo data)
         {

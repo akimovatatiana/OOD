@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherStationTests", "Weat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherStationDuo", "WeatherStationDuo\WeatherStationDuo.csproj", "{35076ADB-A899-4BEA-8F76-D163384C8D76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherStationDuoTests", "WeatherStationDuoTests\WeatherStationDuoTests.csproj", "{88AE2036-1D27-4CC5-8930-BFE5110E3896}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherStationDuoTests", "WeatherStationDuoTests\WeatherStationDuoTests.csproj", "{88AE2036-1D27-4CC5-8930-BFE5110E3896}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherStationPro", "WeatherStationPro\WeatherStationPro.csproj", "{76E5494A-75EA-4283-81DD-BAC60AC016C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherStationProDuo", "WeatherStationProDuo\WeatherStationProDuo.csproj", "{7C75D0FB-14FF-4FDC-8AFD-20CD2DF25EDC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{88AE2036-1D27-4CC5-8930-BFE5110E3896}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88AE2036-1D27-4CC5-8930-BFE5110E3896}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88AE2036-1D27-4CC5-8930-BFE5110E3896}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76E5494A-75EA-4283-81DD-BAC60AC016C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76E5494A-75EA-4283-81DD-BAC60AC016C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76E5494A-75EA-4283-81DD-BAC60AC016C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76E5494A-75EA-4283-81DD-BAC60AC016C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C75D0FB-14FF-4FDC-8AFD-20CD2DF25EDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C75D0FB-14FF-4FDC-8AFD-20CD2DF25EDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C75D0FB-14FF-4FDC-8AFD-20CD2DF25EDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C75D0FB-14FF-4FDC-8AFD-20CD2DF25EDC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
