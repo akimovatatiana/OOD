@@ -25,10 +25,10 @@ namespace WeatherStationPro.WeatherData
             ++_countAcc;
         }
 
-        public string GetAverageDirection()
+        public double GetAverageDirection()
         {
             var averageDirection = (ConvertRadiansToDegrees(Math.Atan2(_sinSum / _countAcc, _cosSum / _countAcc)) + 360) % 360;
-            return $"    Average direction {averageDirection}";
+            return averageDirection;
         }
     }
 }
