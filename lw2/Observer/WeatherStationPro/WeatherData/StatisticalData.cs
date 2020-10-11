@@ -21,9 +21,19 @@
             ++_countAcc;
         }
 
-        public string GetStatisticalData()
+        public double GetMinValue()
         {
-            return $"\n    Max {_max}\n    Min {_min}\n    Average {_acc / _countAcc}";
+            return _min;
+        }
+
+        public double GetMaxValue()
+        {
+            return _max;
+        }
+
+        public double GetAverageValue()
+        {
+            return _acc / _countAcc;
         }
     }
 }

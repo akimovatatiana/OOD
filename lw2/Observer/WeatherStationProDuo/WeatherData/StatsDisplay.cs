@@ -15,7 +15,7 @@ namespace WeatherStationProDuo.WeatherData
             _weatherDataIn = weatherDataIn;
             _weatherDataOut = weatherDataOut;
         }
-
+      
         public void Update(SWeatherInfo data, Observer.IObservable<SWeatherInfo> observable)
         {
             if (_weatherDataIn == observable)

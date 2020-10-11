@@ -7,7 +7,7 @@
         private double _acc = 0;
         private uint _countAcc = 0;
 
-        public string GetStatisticalData(double value)
+        public void UpdateData(double value)
         {
             if (_min > value)
             {
@@ -19,8 +19,21 @@
             }
             _acc += value;
             ++_countAcc;
+        }
 
-            return $"\n    Max {_max}\n    Min {_min}\n    Average {_acc / _countAcc}";
+        public double GetMinValue()
+        {
+            return _min;
+        }
+
+        public double GetMaxValue()
+        {
+            return _max;
+        }
+
+        public double GetAverageValue()
+        {
+            return _acc / _countAcc;
         }
     }
 }

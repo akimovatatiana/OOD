@@ -8,11 +8,20 @@ namespace WeatherStationDuo.WeatherData
         private readonly StatisticalData _humidityData = new StatisticalData();
         private readonly StatisticalData _pressureData = new StatisticalData();
 
+        private string GetSpesificStatistics(StatisticalData data)
+        {
+            return $"\n    Max {data.GetMaxValue()}\n    Min {data.GetMinValue()}\n    Average {data.GetAverageValue()}";
+        }
+
         public void PrintStatistics(SWeatherInfo data)
         {
-            Console.WriteLine($"Temperature: {_temperatureData.GetStatisticalData(data.temperature)}");
-            Console.WriteLine($"Humidity: {_humidityData.GetStatisticalData(data.humidity)}");
-            Console.WriteLine($"Pressure: {_pressureData.GetStatisticalData(data.pressure)}");
+            _temperatureData.UpdateData(data.temperature);
+            _humidityData.UpdateData(data.humidity);
+            _pressureData.UpdateData(data.pressure);
+
+            Console.WriteLine($"Temperature: {GetSpesificStatistics(_temperatureData)}");
+            Console.WriteLine($"Humidity: {GetSpesificStatistics(_humidityData)}");
+            Console.WriteLine($"Pressure: {GetSpesificStatistics(_pressureData)}");
             Console.WriteLine("----------------");
         }
     }

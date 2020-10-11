@@ -10,6 +10,16 @@ namespace WeatherStationPro.WeatherData
         private readonly StatisticalData _windSpeed = new StatisticalData();
         private readonly StatisticalDirectionData _windDirection = new StatisticalDirectionData();
 
+        private string GetSpesificStatistics(StatisticalData data)
+        {
+            return $"\n    Max {data.GetMaxValue()}\n    Min {data.GetMinValue()}\n    Average {data.GetAverageValue()}";
+        }
+
+        private string GetDirectionStatistics(StatisticalDirectionData data)
+        {
+            return $"    Average direction {data.GetAverageDirection()}";
+        }
+
         public void Update(SWeatherInfo data)
         {
             _temperatureData.UpdateData(data.temperature);
@@ -18,11 +28,11 @@ namespace WeatherStationPro.WeatherData
             _windSpeed.UpdateData(data.windInfo.speed);
             _windDirection.UpdateDirectionData(data.windInfo.direction);
 
-            Console.WriteLine($"Temperature: {_temperatureData.GetStatisticalData()}");
-            Console.WriteLine($"Humidity: {_humidityData.GetStatisticalData()}");
-            Console.WriteLine($"Pressure: {_pressureData.GetStatisticalData()}");
-            Console.WriteLine($"Wind: {_windSpeed.GetStatisticalData()}");
-            Console.WriteLine($"{_windDirection.GetAverageDirection()}");
+            Console.WriteLine($"Temperature: {GetSpesificStatistics(_temperatureData)}");
+            Console.WriteLine($"Humidity: {GetSpesificStatistics(_humidityData)}");
+            Console.WriteLine($"Pressure: {GetSpesificStatistics(_pressureData)}");
+            Console.WriteLine($"Wind: {GetSpesificStatistics(_windSpeed)}");
+            Console.WriteLine($"{GetDirectionStatistics(_windDirection)}");
             Console.WriteLine("----------------");
         }
     }
