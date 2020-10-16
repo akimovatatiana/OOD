@@ -1,40 +1,29 @@
-﻿using Painter.Canvases;
-using Painter.Enums;
+﻿using Painter.Enums;
 
 namespace Painter.Shapes
 {
     public class Rectangle : Shape
     {
-        private readonly Point _leftTop;
-        private readonly Point _rightBottom;
+        public Point LeftTop { get; }
+        public Point RightBottom { get; }
 
         public Rectangle(Point leftTop, Point rightBottom, Color color)
             : base(color)
         {
-            _leftTop = leftTop;
-            _rightBottom = rightBottom;
-        }
-
-        public Point GetLeftTop()
-        {
-            return _leftTop;
-        }
-
-        public Point GetRightBottom()
-        {
-            return _rightBottom;
+            LeftTop = leftTop;
+            RightBottom = rightBottom;
         }
 
         public override void Draw(ICanvas canvas)
         {
-            var rightTop = new Point(_rightBottom.X, _leftTop.Y);
-            var leftBottom = new Point(_leftTop.X, _rightBottom.Y);
+            var rightTop = new Point(RightBottom.X, LeftTop.Y);
+            var leftBottom = new Point(LeftTop.X, RightBottom.Y);
 
-            canvas.SetColor(GetColor());
-            canvas.DrawLine(_leftTop, rightTop);
-            canvas.DrawLine(rightTop, _rightBottom);
-            canvas.DrawLine(_rightBottom, leftBottom);
-            canvas.DrawLine(leftBottom, _leftTop);
+            canvas.Color = Color;
+            canvas.DrawLine(LeftTop, rightTop);
+            canvas.DrawLine(rightTop, RightBottom);
+            canvas.DrawLine(RightBottom, leftBottom);
+            canvas.DrawLine(leftBottom, LeftTop);
         }
     }
 }

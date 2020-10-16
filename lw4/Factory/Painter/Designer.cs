@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Painter
 {
-    public class Designer : IDesigner
+    public class Designer
     {
         private readonly IShapeFactory _factory;
 
@@ -16,7 +16,7 @@ namespace Painter
         {
             PictureDraft draft = new PictureDraft();
             string line;
-            while ((line = inputData.ReadLine()) != null)
+            while ((line = inputData.ReadLine()) != null && line != "exit")
             {
                 try
                 {

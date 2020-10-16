@@ -1,29 +1,15 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Painter;
-using Painter.Canvases;
 using Painter.Enums;
-using Painter.Shapes;
 using System;
 
 namespace PainterTests
 {
-    public class TestShape : Shape
-    {
-        public TestShape(Color color)
-            : base(color)
-        {
-        }
-
-        public override void Draw(ICanvas canvas)
-        {
-        }
-    }
-
     [TestClass]
     public class PictureDraftTests
     {
         [TestMethod]
-        public void PictureDraft_CanAddShapes()
+        public void AddShape_WithMultipleShapes_ShouldAddShapesToPictureDraft()
         {
             var pictureDraft = new PictureDraft();
             var shape1 = new TestShape(Color.Blue);
@@ -36,7 +22,7 @@ namespace PainterTests
         }
 
         [TestMethod]
-        public void PictureDraft_CanGetShapeByIndex()
+        public void CanShape_ByIndex_ShouldGetShape()
         {
             var pictureDraft = new PictureDraft();
             var shape = new TestShape(Color.Blue);
@@ -47,7 +33,7 @@ namespace PainterTests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void PictureDraft_GetShapeByIndexOutOfRange_ThrowsException()
+        public void GetShape_ByIndexOutOfRange_ShouldThrowException()
         {
             var pictureDraft = new PictureDraft();
             var shape = new TestShape(Color.Blue);

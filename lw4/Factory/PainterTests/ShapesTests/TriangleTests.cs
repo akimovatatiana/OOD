@@ -17,9 +17,10 @@ namespace PainterTests.ShapesTests
             var color = Color.Red;
             var triangle = new Triangle(vertex1, vertex2, vertex3, color);
 
-            Assert.AreEqual(vertex1, triangle.GetVertex1());
-            Assert.AreEqual(vertex2, triangle.GetVertex2());
-            Assert.AreEqual(vertex3, triangle.GetVertex3());
+            Assert.AreEqual(color, triangle.Color);
+            Assert.AreEqual(vertex1, triangle.Vertex1);
+            Assert.AreEqual(vertex2, triangle.Vertex2);
+            Assert.AreEqual(vertex3, triangle.Vertex3);
         }
 
         [TestMethod]

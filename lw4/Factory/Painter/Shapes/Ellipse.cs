@@ -1,41 +1,25 @@
-﻿using Painter.Canvases;
-using Painter.Enums;
+﻿using Painter.Enums;
 
 namespace Painter.Shapes
 {
     public class Ellipse : Shape
     {
-        private readonly Point _center;
-        private readonly double _horisontalRadius;
-        private readonly double _verticalRadius;
+        public Point Center { get; }
+        public double HorizontalRadius { get; }
+        public double VerticalRadius { get; }
 
-        public Ellipse(Point center, double horisontalRadius, double verticalRadius, Color color)
+        public Ellipse(Point center, double horizontalRadius, double verticalRadius, Color color)
             : base(color)
         {
-            _center = center;
-            _horisontalRadius = horisontalRadius;
-            _verticalRadius = verticalRadius;
-        }
-
-        public Point GetCenter()
-        {
-            return _center;
-        }
-
-        public double GetHorizontalRadius()
-        {
-            return _horisontalRadius;
-        }
-
-        public double GetVerticalRadius()
-        {
-            return _verticalRadius;
+            Center = center;
+            HorizontalRadius = horizontalRadius;
+            VerticalRadius = verticalRadius;
         }
 
         public override void Draw(ICanvas canvas)
         {
-            canvas.SetColor(GetColor());
-            canvas.DrawEllipse(_center, _horisontalRadius * 2, _verticalRadius * 2);
+            canvas.Color = Color;
+            canvas.DrawEllipse(Center, HorizontalRadius * 2, VerticalRadius * 2);
         }
     }
 }

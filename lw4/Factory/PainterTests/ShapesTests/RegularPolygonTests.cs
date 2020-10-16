@@ -17,17 +17,18 @@ namespace PainterTests.ShapesTests
             var color = Color.Green;
             var regularPolygon = new RegularPolygon(center, radius, vertexCount, color);
 
-            Assert.AreEqual(vertexCount, regularPolygon.GetVertexCount());
-            Assert.AreEqual(center, regularPolygon.GetCenter());
-            Assert.AreEqual(radius, regularPolygon.GetRadius());
+            Assert.AreEqual(color, regularPolygon.Color);
+            Assert.AreEqual(vertexCount, regularPolygon.VertexCount);
+            Assert.AreEqual(center, regularPolygon.Center);
+            Assert.AreEqual(radius, regularPolygon.Radius);
         }
 
         [TestMethod]
         public void Draw_WithRegularPolygon_ShouldWriteDrawingInfo()
         {
-            var center = new Point(0, 0);
-            double radius = 4;
-            int vertexCount = 5;
+            var center = new Point(100, 100);
+            double radius = 30;
+            int vertexCount = 3;
             var color = Color.Green;
             var regularPolygon = new RegularPolygon(center, radius, vertexCount, color);
             var sw = new StringWriter();
@@ -35,7 +36,10 @@ namespace PainterTests.ShapesTests
 
             regularPolygon.Draw(canvas);
 
-            var expectedString = "";
+            var expectedString = "Green line from (130, 100), to (130, 100)\r\n" +
+            "Green line from (130, 100), to (85, 125,98076211353316)\r\n" +
+            "Green line from (85, 125,98076211353316), to (84,99999999999999, 74,01923788646684)\r\n" +
+            "Green line from (84,99999999999999, 74,01923788646684), to (130, 99,99999999999999)\r\n";
             Assert.AreEqual(expectedString, sw.ToString());
         }
     }

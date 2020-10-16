@@ -1,5 +1,5 @@
 ﻿using System.IO;
-using Painter.Canvases;
+using Painter;
 using Painter.Enums;
 using Painter.Shapes;
 
@@ -8,16 +8,11 @@ namespace PainterTests
     public class TestCanvas : ICanvas
     {
         private readonly TextWriter _textWriter;
-        private Color _color;
+        public Color Color { get; set; }
 
         public TestCanvas(TextWriter textWriter)
         {
             _textWriter = textWriter;
-        }
-
-        public void SetColor(Color color)
-        {
-            _color = color;
         }
 
         public void DrawLine(Point from, Point to)
@@ -32,7 +27,7 @@ namespace PainterTests
 
         private string ColorToString()
         {
-            return _color switch
+            return Color switch
             {
                 Color.Green => "Green",
                 Color.Red => "Red",

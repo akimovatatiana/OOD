@@ -6,18 +6,6 @@ namespace Painter
 {
     public class ShapeFactory : IShapeFactory
     {
-        /*private readonly Dictionary<string, Func<string[], Shape>> _actionMap;
-
-        public ShapeFactory()
-        {
-            _actionMap = new Dictionary<string, Func<string[], Shape>>
-            {
-                { "ellipse", CreateEllipse },
-                { "rectangle", CreateRectangle },
-                { "triangle", CreateTriangle },
-                { "regularpolygon", CreateRegularPolygon }
-            };
-        }*/
         public Shape CreateShape(string description)
         {
             var args = description.Split();
@@ -27,7 +15,7 @@ namespace Painter
                 "triangle" => CreateTriangle(args),
                 "ellipse" => CreateEllipse(args),
                 "regularpolygon" => CreateRegularPolygon(args),
-                _ => throw new ArgumentException($"Failed to create shape called {args[1]}."),
+                _ => throw new ArgumentException($"Failed to create shape named {args[1]}."),
             };
         }
 
@@ -44,7 +32,7 @@ namespace Painter
             }
             else
             {
-                throw new ArgumentException("Failed to create a triangle.\nUsage Usage: Triangle <color> <vertex1> <vertex2> <vertex3>");
+                throw new ArgumentException("Failed to create a regular polygon.\nUsage: RegularPolygon <color> <center> <radius> <vertexCount>");
             }
         }
 
@@ -61,7 +49,7 @@ namespace Painter
             }
             else
             {
-                throw new ArgumentException("Failed to create a triangle.\nUsage Usage: Triangle <color> <vertex1> <vertex2> <vertex3>");
+                throw new ArgumentException("Failed to create a triangle.\nUsage: Triangle <color> <vertex1> <vertex2> <vertex3>");
             }
         }
 
@@ -77,7 +65,7 @@ namespace Painter
             }
             else
             {
-                throw new ArgumentException("Failed to create a rectangle.\nUsage Usage: Rectangle <color> <leftTop> <rightBottom>");
+                throw new ArgumentException("Failed to create a rectangle.\nUsage: Rectangle <color> <leftTop> <rightBottom>");
             }
         }
 
@@ -94,7 +82,7 @@ namespace Painter
             }
             else
             {
-                throw new ArgumentException("Failed to create an ellipse.\nUsage Usage: Ellipse <color> <center> <horisontalRadius> <verticalRadius>");
+                throw new ArgumentException("Failed to create an ellipse.\nUsage: Ellipse <color> <center> <horisontalRadius> <verticalRadius>");
             }
         }
 

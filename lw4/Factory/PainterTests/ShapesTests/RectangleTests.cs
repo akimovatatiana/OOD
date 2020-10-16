@@ -16,8 +16,9 @@ namespace PainterTests.ShapesTests
             var color = Color.Green;
             var rectangle = new Rectangle(leftTop, rightBottom, color);
 
-            Assert.AreEqual(leftTop, rectangle.GetLeftTop());
-            Assert.AreEqual(rightBottom, rectangle.GetRightBottom());
+            Assert.AreEqual(color, rectangle.Color);
+            Assert.AreEqual(leftTop, rectangle.LeftTop);
+            Assert.AreEqual(rightBottom, rectangle.RightBottom);
         }
 
         [TestMethod]

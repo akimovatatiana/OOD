@@ -1,50 +1,32 @@
-﻿using Painter.Canvases;
-using Painter.Enums;
+﻿using Painter.Enums;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Painter.Shapes
 {
     public class RegularPolygon : Shape
     {
-        private readonly Point _center;
-        private readonly double _radius;
-        private readonly int _vertexCount;
+        public Point Center { get; }
+        public double Radius { get; }
+        public int VertexCount { get; }
 
         public RegularPolygon(Point center, double radius, int vertexCount, Color color)
             : base(color)
         {
-            _center = center;
-            _radius = radius;
-            _vertexCount = vertexCount;
-        }
-
-        public int GetVertexCount()
-        {
-            return _vertexCount;
-        }
-
-        public Point GetCenter()
-        {
-            return _center;
-        }
-
-        public double GetRadius()
-        {
-            return _radius;
+            Center = center;
+            Radius = radius;
+            VertexCount = vertexCount;
         }
 
         public override void Draw(ICanvas canvas)
         {
-            canvas.SetColor(GetColor());
-            double angle = 2 * Math.PI / _vertexCount;
+            canvas.Color = Color;
+            double angle = 2 * Math.PI / VertexCount;
 
-            var startPoint = new Point(_center.X + _radius * Math.Cos(0), _center.Y);
+            var startPoint = new Point(Center.X + Radius * Math.Cos(0), Center.Y);
 
-            for (int i = 0; i < _vertexCount; i++)
+            for (int i = 0; i <= VertexCount; i++)
             {
-                var endPoint = new Point(_center.X + _radius * Math.Cos(angle * i), _center.Y + _radius * Math.Sin(angle * i));
+                var endPoint = new Point(Center.X + Radius * Math.Cos(angle * i), Center.Y + Radius * Math.Sin(angle * i));
                 canvas.DrawLine(startPoint, endPoint);
                 startPoint = endPoint;
             }

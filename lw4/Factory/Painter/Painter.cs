@@ -1,7 +1,4 @@
-﻿using Painter.Canvases;
-using System;
-
-namespace Painter
+﻿namespace Painter
 {
     public class Painter 
     {
@@ -10,7 +7,6 @@ namespace Painter
             for (int i = 0; i < draft.ShapeCount; i++)
             {
                 var shape = draft.GetShape(i);
-                Console.Write($"Shape: {shape.GetType().Name}\n");
                 shape.Draw(canvas);
             }
         }

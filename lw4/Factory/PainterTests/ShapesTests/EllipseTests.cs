@@ -16,10 +16,11 @@ namespace PainterTests.ShapesTests
             double verticalRadius = 2;
             var color = Color.Green;
             var ellipse = new Ellipse(center, horizontalRadius, verticalRadius, color);
-
-            Assert.AreEqual(center, ellipse.GetCenter());
-            Assert.AreEqual(horizontalRadius, ellipse.GetHorizontalRadius());
-            Assert.AreEqual(verticalRadius, ellipse.GetVerticalRadius());
+            
+            Assert.AreEqual(color, ellipse.Color);
+            Assert.AreEqual(center, ellipse.Center);
+            Assert.AreEqual(horizontalRadius, ellipse.HorizontalRadius);
+            Assert.AreEqual(verticalRadius, ellipse.VerticalRadius);
         }
 
         [TestMethod]

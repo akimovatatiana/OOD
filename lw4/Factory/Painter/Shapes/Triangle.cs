@@ -1,44 +1,27 @@
-﻿using Painter.Canvases;
-using Painter.Enums;
-using System;
+﻿using Painter.Enums;
 
 namespace Painter.Shapes
 {
     public class Triangle : Shape
     {
-        private Point _vertex1;
-        private Point _vertex2;
-        private Point _vertex3;
+        public Point Vertex1 { get; }
+        public Point Vertex2 { get; }
+        public Point Vertex3 { get; }
 
         public Triangle(Point vertex1, Point vertex2, Point vertex3, Color color)
             : base(color)
         {
-            _vertex1 = vertex1;
-            _vertex2 = vertex2;
-            _vertex3 = vertex3;
-        }
-
-        public Point GetVertex1()
-        {
-            return _vertex1;
-        }
-
-        public Point GetVertex2()
-        {
-            return _vertex2;
-        }
-
-        public Point GetVertex3()
-        {
-            return _vertex3;
+            Vertex1 = vertex1;
+            Vertex2 = vertex2;
+            Vertex3 = vertex3;
         }
 
         public override void Draw(ICanvas canvas)
         {
-            canvas.SetColor(GetColor());
-            canvas.DrawLine(_vertex1, _vertex2);
-            canvas.DrawLine(_vertex2, _vertex3);
-            canvas.DrawLine(_vertex3, _vertex1);
+            canvas.Color = Color;
+            canvas.DrawLine(Vertex1, Vertex2);
+            canvas.DrawLine(Vertex2, Vertex3);
+            canvas.DrawLine(Vertex3, Vertex1);
         }
     }
 }

@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Painter;
-using Painter.Canvases;
-using System;
+using Painter.Enums;
+using Painter.Shapes;
 using System.IO;
 
 namespace PainterTests
@@ -14,19 +14,21 @@ namespace PainterTests
         {
             var painter = new Painter.Painter();
             var pictureDraft = new PictureDraft();
-            var shape = new TestShape(Painter.Enums.Color.Green);
-            var canvas = new Canvas();
-
-            pictureDraft.AddShape(shape);
-
+            var rectangle = new Rectangle(new Point(150, 150), new Point(10, 300), Color.Blue);
+            var ellipse = new Ellipse(new Point(200, 200), 100, 75, Color.Yellow);
             var sw = new StringWriter();
-            Console.SetOut(sw);
+            var canvas = new TestCanvas(sw);
 
+            pictureDraft.AddShape(rectangle);
+            pictureDraft.AddShape(ellipse);
             painter.DrawPicture(pictureDraft, canvas);
 
-            string result = sw.ToString();
-            string expected = "Shape: TestShape\n";
-            Assert.AreEqual(expected, result);
+            string expected = "Blue line from (150, 150), to (10, 150)\r\n" +
+            "Blue line from (10, 150), to (10, 300)\r\n" +
+            "Blue line from (10, 300), to (150, 300)\r\n" +
+            "Blue line from (150, 300), to (150, 150)\r\n" +
+            "Yellow ellipse with center: (200, 200); width: 200; height: 150\r\n";
+            Assert.AreEqual(expected, sw.ToString());
         }
     }
 }

@@ -1,20 +1,14 @@
-﻿using Painter.Canvases;
-using Painter.Enums;
+﻿using Painter.Enums;
 
 namespace Painter.Shapes
 {
     public abstract class Shape
     {
-        private Color _color;
+        public Color Color { get; }
 
         public Shape(Color color)
         {
-            _color = color;
-        }
-
-        public Color GetColor()
-        {
-            return _color;
+            Color = color;
         }
 
         public abstract void Draw(ICanvas canvas);
