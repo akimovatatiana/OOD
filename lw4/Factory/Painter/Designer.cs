@@ -22,9 +22,9 @@ namespace Painter
                 {
                     draft.AddShape(_factory.CreateShape(line));
                 }
-                catch (Exception ex)
+                catch (Exception e)
                 {
-                    Console.WriteLine($"{ex.Message}");
+                    Console.WriteLine($"{e.Message}");
                 }
             }
             return draft;

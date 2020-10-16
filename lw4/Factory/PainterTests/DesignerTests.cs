@@ -16,7 +16,7 @@ namespace PainterTests
             var inputData = new StringReader("Triangle green -2 3 4 3 2 5");
             var draft = designer.CreateDraft(inputData);
 
-            Assert.AreEqual(1, draft.GetShapeCount());
+            Assert.AreEqual(1, draft.ShapeCount);
         }
 
         [TestMethod]
@@ -27,7 +27,7 @@ namespace PainterTests
 
             var inputData = new StringReader("Triangle green -2 3 4 3 2 5\nTriangle green -2 3 4 3 2 5");
             var draft = designer.CreateDraft(inputData);
-            Assert.AreEqual(2, draft.GetShapeCount());
+            Assert.AreEqual(2, draft.ShapeCount);
         }
     }
 }

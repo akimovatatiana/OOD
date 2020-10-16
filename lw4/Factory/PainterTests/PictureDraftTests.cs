@@ -29,10 +29,10 @@ namespace PainterTests
             var shape1 = new TestShape(Color.Blue);
             var shape2 = new TestShape(Color.Green);
 
-            Assert.AreEqual(0, pictureDraft.GetShapeCount());
+            Assert.AreEqual(0, pictureDraft.ShapeCount);
             pictureDraft.AddShape(shape1);
             pictureDraft.AddShape(shape2);
-            Assert.AreEqual(2, pictureDraft.GetShapeCount());
+            Assert.AreEqual(2, pictureDraft.ShapeCount);
         }
 
         [TestMethod]
@@ -46,14 +46,15 @@ namespace PainterTests
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void PictureDraft_GetShapeByIndexOutOfRange_ThrowsException()
         {
             var pictureDraft = new PictureDraft();
             var shape = new TestShape(Color.Blue);
 
             pictureDraft.AddShape(shape);
-            Assert.ThrowsException<ArgumentOutOfRangeException>(() => pictureDraft.GetShape(-1));
-            Assert.ThrowsException<ArgumentOutOfRangeException>(() => pictureDraft.GetShape(2));
+            pictureDraft.GetShape(-1);
+            pictureDraft.GetShape(2);
         }
     }
 }

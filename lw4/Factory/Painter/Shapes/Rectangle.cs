@@ -5,8 +5,8 @@ namespace Painter.Shapes
 {
     public class Rectangle : Shape
     {
-        private Point _leftTop;
-        private Point _rightBottom;
+        private readonly Point _leftTop;
+        private readonly Point _rightBottom;
 
         public Rectangle(Point leftTop, Point rightBottom, Color color)
             : base(color)
@@ -27,7 +27,14 @@ namespace Painter.Shapes
 
         public override void Draw(ICanvas canvas)
         {
-            throw new System.NotImplementedException();
+            var rightTop = new Point(_rightBottom.X, _leftTop.Y);
+            var leftBottom = new Point(_leftTop.X, _rightBottom.Y);
+
+            canvas.SetColor(GetColor());
+            canvas.DrawLine(_leftTop, rightTop);
+            canvas.DrawLine(rightTop, _rightBottom);
+            canvas.DrawLine(_rightBottom, leftBottom);
+            canvas.DrawLine(leftBottom, _leftTop);
         }
     }
 }

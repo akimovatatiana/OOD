@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Painter.Shapes
+﻿namespace Painter.Shapes
 {
     public class Point
     {
@@ -13,6 +9,11 @@ namespace Painter.Shapes
         {
             X = x;
             Y = y;
+        }
+
+        public override string ToString()
+        {
+            return $"({X}, {Y})";
         }
     }
 }

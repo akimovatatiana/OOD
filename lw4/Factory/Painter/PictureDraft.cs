@@ -8,9 +8,9 @@ namespace Painter
     {
         private readonly List<Shape> _shapes = new List<Shape>();
 
-        public int GetShapeCount()
+        public int ShapeCount
         {
-            return _shapes.Count;
+            get { return _shapes.Count; } 
         }
 
         public void AddShape(Shape shape)

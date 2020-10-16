@@ -35,7 +35,10 @@ namespace Painter.Shapes
 
         public override void Draw(ICanvas canvas)
         {
-            throw new NotImplementedException();
+            canvas.SetColor(GetColor());
+            canvas.DrawLine(_vertex1, _vertex2);
+            canvas.DrawLine(_vertex2, _vertex3);
+            canvas.DrawLine(_vertex3, _vertex1);
         }
     }
 }

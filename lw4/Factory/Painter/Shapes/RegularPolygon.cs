@@ -1,14 +1,16 @@
 ﻿using Painter.Canvases;
 using Painter.Enums;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Painter.Shapes
 {
     public class RegularPolygon : Shape
     {
-        private Point _center;
-        private double _radius;
-        private int _vertexCount;
+        private readonly Point _center;
+        private readonly double _radius;
+        private readonly int _vertexCount;
 
         public RegularPolygon(Point center, double radius, int vertexCount, Color color)
             : base(color)
@@ -35,7 +37,17 @@ namespace Painter.Shapes
 
         public override void Draw(ICanvas canvas)
         {
-            throw new NotImplementedException();
+            canvas.SetColor(GetColor());
+            double angle = 2 * Math.PI / _vertexCount;
+
+            var startPoint = new Point(_center.X + _radius * Math.Cos(0), _center.Y);
+
+            for (int i = 0; i < _vertexCount; i++)
+            {
+                var endPoint = new Point(_center.X + _radius * Math.Cos(angle * i), _center.Y + _radius * Math.Sin(angle * i));
+                canvas.DrawLine(startPoint, endPoint);
+                startPoint = endPoint;
+            }
         }
     }
 }

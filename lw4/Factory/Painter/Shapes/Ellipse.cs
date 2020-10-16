@@ -5,9 +5,9 @@ namespace Painter.Shapes
 {
     public class Ellipse : Shape
     {
-        private Point _center;
-        private double _horisontalRadius;
-        private double _verticalRadius;
+        private readonly Point _center;
+        private readonly double _horisontalRadius;
+        private readonly double _verticalRadius;
 
         public Ellipse(Point center, double horisontalRadius, double verticalRadius, Color color)
             : base(color)
@@ -35,6 +35,7 @@ namespace Painter.Shapes
         public override void Draw(ICanvas canvas)
         {
             canvas.SetColor(GetColor());
+            canvas.DrawEllipse(_center, _horisontalRadius * 2, _verticalRadius * 2);
         }
     }
 }

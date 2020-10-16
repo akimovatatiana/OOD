@@ -1,12 +1,19 @@
-﻿using Painter.Enums;
+﻿using System.IO;
+using Painter.Canvases;
+using Painter.Enums;
 using Painter.Shapes;
-using System;
 
-namespace Painter.Canvases
+namespace PainterTests
 {
-    public class Canvas : ICanvas
+    public class TestCanvas : ICanvas
     {
+        private readonly TextWriter _textWriter;
         private Color _color;
+
+        public TestCanvas(TextWriter textWriter)
+        {
+            _textWriter = textWriter;
+        }
 
         public void SetColor(Color color)
         {
@@ -15,12 +22,12 @@ namespace Painter.Canvases
 
         public void DrawLine(Point from, Point to)
         {
-            Console.WriteLine($"{ColorToString()} line from {from}, to {to}");
+            _textWriter.WriteLine($"{ColorToString()} line from {from}, to {to}");
         }
 
         public void DrawEllipse(Point center, double w, double h)
         {
-            Console.WriteLine($"{ColorToString()} ellipse with center: {center}; width: {w}; height: {h}");
+            _textWriter.WriteLine($"{ColorToString()} ellipse with center: {center}; width: {w}; height: {h}");
         }
 
         private string ColorToString()
