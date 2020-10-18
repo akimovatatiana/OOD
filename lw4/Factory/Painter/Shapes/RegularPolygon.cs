@@ -22,9 +22,9 @@ namespace Painter.Shapes
             canvas.Color = Color;
             double angle = 2 * Math.PI / VertexCount;
 
-            var startPoint = new Point(Center.X + Radius * Math.Cos(0), Center.Y);
+            var startPoint = new Point(Center.X + Radius, Center.Y);
 
-            for (int i = 0; i <= VertexCount; i++)
+            for (int i = 1; i <= VertexCount; i++)
             {
                 var endPoint = new Point(Center.X + Radius * Math.Cos(angle * i), Center.Y + Radius * Math.Sin(angle * i));
                 canvas.DrawLine(startPoint, endPoint);

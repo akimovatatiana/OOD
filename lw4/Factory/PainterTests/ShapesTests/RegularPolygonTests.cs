@@ -36,8 +36,7 @@ namespace PainterTests.ShapesTests
 
             regularPolygon.Draw(canvas);
 
-            var expectedString = "Green line from (130, 100), to (130, 100)\r\n" +
-            "Green line from (130, 100), to (85, 125,98076211353316)\r\n" +
+            var expectedString = "Green line from (130, 100), to (85, 125,98076211353316)\r\n" +
             "Green line from (85, 125,98076211353316), to (84,99999999999999, 74,01923788646684)\r\n" +
             "Green line from (84,99999999999999, 74,01923788646684), to (130, 99,99999999999999)\r\n";
             Assert.AreEqual(expectedString, sw.ToString());
