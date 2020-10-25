@@ -8,6 +8,7 @@
         int ItemsCount { get; }
         DocumentItem GetItem(int index);
         void DeleteItem(int position);
+        void ReplaceText(string text, int position);
         bool CanUndo();
         void Undo();
         bool CanRedo();

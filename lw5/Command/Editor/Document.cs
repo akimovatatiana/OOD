@@ -68,5 +68,18 @@ namespace Editor
         {
             return (index >= ItemsCount || index < 0) ? throw new IndexOutOfRangeException($"There is no item by {index} index.") : _documentItems[index];
         }
+
+        public void ReplaceText(string text, int position)
+        {
+            var item = GetItem(position).Paragraph;
+            if (item is Paragraph)
+            {
+                _history.AddAndExecuteCommand(new ReplaceTextCommand(item, text));
+            }
+            else
+            {
+                throw new IndexOutOfRangeException($"There is no paragraph at {position} position");
+            }
+        }
     }
 }

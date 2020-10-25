@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 
 namespace Editor
@@ -70,16 +69,8 @@ namespace Editor
             else
             {
                 int position = int.Parse(args[1]);
-                var item = _document.GetItem(position).Paragraph;
-                if (item is Paragraph)
-                {
-                    var text = string.Join(" ", args.Skip(2));
-                    item.Text = text;
-                }
-                else
-                {
-                    _textWriter.WriteLine($"There is no paragraph at {position} position");
-                }
+                var text = string.Join(" ", args.Skip(2));
+                _document.ReplaceText(text, position);
             }
         }
 

@@ -1,6 +1,4 @@
-﻿using System.Security.Cryptography;
-
-namespace Editor
+﻿namespace Editor
 {
     public class DocumentItem
     {

@@ -57,18 +57,6 @@ namespace EditorTests
 		}
 
 		[TestMethod]
-		public void ReplaceText_WithInvalidPosition_ShouldPrintMessage()
-		{
-			var command = "insertParagraph 0 text\nreplace 1 text2\n";
-			var sr = new StringReader(command);
-			var sw = new StringWriter();
-			Editor.Editor editor = new Editor.Editor(sw, sr);
-			editor.Start();
-			var expected = "There is no item by 1 index.\r\n";
-			Assert.AreEqual(expected, sw.ToString());
-		}
-
-		[TestMethod]
 		public void DeleteItem_WithInvalidArgsCount_ShouldPrintMessage()
 		{
 			var command = "delete\n";

@@ -26,7 +26,6 @@ namespace Editor
 
         public void Run()
         {
-            //ShowInstructions();
             while (!_exit)
             {
                 string command = _textReader.ReadLine();
