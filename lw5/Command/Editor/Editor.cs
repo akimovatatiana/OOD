@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 
 namespace Editor
@@ -20,6 +21,7 @@ namespace Editor
             _menu.AddItem("setTitle", "Set title of document <title>", SetTitle);
             _menu.AddItem("list", "Show document as list", ShowList);
             _menu.AddItem("replace", "Replace text in paragraph <position>|end <text>", ReplaceText);
+            _menu.AddItem("delete", "Delete item <position>", DeleteItem);
             _menu.AddItem("help", "Show help", ShowInstructions);
             _menu.AddItem("exit", "Exit programm", Exit);
             _menu.AddItem("undo", "Undo command", Undo);
@@ -30,6 +32,19 @@ namespace Editor
         public void Start()
         {
             _menu.Run();
+        }
+
+        private void DeleteItem(string[] args)
+        {
+            if (args.Length < 2)
+            {
+                _textWriter.WriteLine("Not enough arguments! Usage: delete <position>");
+            }
+            else
+            {
+                int position = int.Parse(args[1]);
+                _document.DeleteItem(position);
+            }
         }
 
         private void InsertParagraph(string[] args)
@@ -54,8 +69,8 @@ namespace Editor
             }
             else
             {
-                int? position = args[1].ToLower() != "end" ? int.Parse(args[1]) : (int?)null;
-                var item = _document.GetItem((int)position).Paragraph;
+                int position = int.Parse(args[1]);
+                var item = _document.GetItem(position).Paragraph;
                 if (item is Paragraph)
                 {
                     var text = string.Join(" ", args.Skip(2));

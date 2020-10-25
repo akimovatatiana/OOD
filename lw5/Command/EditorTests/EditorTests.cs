@@ -69,6 +69,30 @@ namespace EditorTests
 		}
 
 		[TestMethod]
+		public void DeleteItem_WithInvalidArgsCount_ShouldPrintMessage()
+		{
+			var command = "delete\n";
+			var sr = new StringReader(command);
+			var sw = new StringWriter();
+			Editor.Editor editor = new Editor.Editor(sw, sr);
+			editor.Start();
+			var expected = "Not enough arguments! Usage: delete <position>\r\n";
+			Assert.AreEqual(expected, sw.ToString());
+		}
+
+		[TestMethod]
+		public void DeleteItem_WithCorrectArgs_ShouldDeleteItemFromDocument()
+		{
+			var command = "insertParagraph 0 text\ndelete 0\n";
+			var sr = new StringReader(command);
+			var sw = new StringWriter();
+			Editor.Editor editor = new Editor.Editor(sw, sr);
+			editor.Start();
+			var expected = "";
+			Assert.AreEqual(expected, sw.ToString());
+		}
+
+		[TestMethod]
 		public void SetTitle_WithCorrectArgs_ShouldSetTitleToDocument()
 		{
 			var command = "setTitle title\n";
@@ -182,6 +206,7 @@ namespace EditorTests
 				" setTitle: Set title of document <title>\r\n" +
 				" list: Show document as list\r\n" +
 				" replace: Replace text in paragraph <position>|end <text>\r\n" +
+				" delete: Delete item <position>\r\n" +
 				" help: Show help\r\n" +
 				" exit: Exit programm\r\n" +
 				" undo: Undo command\r\n" +
