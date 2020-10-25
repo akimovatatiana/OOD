@@ -15,7 +15,7 @@ namespace Painter
                 "triangle" => CreateTriangle(args),
                 "ellipse" => CreateEllipse(args),
                 "regularpolygon" => CreateRegularPolygon(args),
-                _ => throw new ArgumentException($"Failed to create shape named {args[1]}."),
+                _ => throw new ArgumentException($"Failed to create shape named {args[0]}."),
             };
         }
 
