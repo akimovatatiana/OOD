@@ -2,6 +2,7 @@
 {
     public interface IParagraph
     {
-        string Text { get; set; }
+        string Text { get; }
+        void SetText(string text);
     }
 }

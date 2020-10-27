@@ -15,7 +15,7 @@ namespace EditorTests
         {
             string title = "Title";
             _document.SetTitle(title);
-            Assert.AreEqual(title, _document.Title);
+            Assert.AreEqual(title, _document.GetTitle());
         }
 
         [TestMethod]
@@ -72,31 +72,6 @@ namespace EditorTests
         }
 
         [TestMethod]
-        public void ReplaceText_WithValidPosition_ShouldTextInParagraph()
-        {
-            string text1 = "First paragraph";
-            string text2 = "Second paragraph";
-            _document.InsertParagraph(text1, 0);
-
-            _document.ReplaceText(text2, 0);
-
-            Assert.AreEqual(text2, _document.GetItem(0).Paragraph.Text);
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(IndexOutOfRangeException))]
-        public void ReplaceText_WithInvalidPosition_ShouldThrowException()
-        {
-            string text1 = "First paragraph";
-            string text2 = "Second paragraph";
-            _document.InsertParagraph(text1, 0);
-            _document.InsertParagraph(text2, 1);
-
-            _document.ReplaceText(text1, 0);
-            _document.ReplaceText(text1, 2);
-        }
-
-        [TestMethod]
         public void GetItem_WtihIndex_ShouldReturnItem()
         {
             string text = "First paragraph";
@@ -144,7 +119,7 @@ namespace EditorTests
         public void Save_WithTitleAndParagraphs_ShouldSaveDocumentToFile()
         {
             string path = Directory.GetCurrentDirectory() + "\\index.html";
-            _document.Title = "Title";
+            _document.SetTitle("Title");
             _document.InsertParagraph("Paragraph", 0);
             _document.Save(path);
 

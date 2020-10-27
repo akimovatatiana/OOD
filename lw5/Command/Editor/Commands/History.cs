@@ -7,6 +7,7 @@ namespace Editor.Commands
     {
         private readonly List<ICommand> _commands = new List<ICommand>();
         private int _nextCommandIndex = 0;
+        private const int MaxCommandCount = 10; 
 
         public bool CanUndo()
         {
@@ -46,7 +47,7 @@ namespace Editor.Commands
 
         public void AddAndExecuteCommand(ICommand command)
         {
-            if (_commands.Count >= 10)
+            if (_commands.Count >= MaxCommandCount)
             {
                 _commands.RemoveAt(0);
                 --_nextCommandIndex;

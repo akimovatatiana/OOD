@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace Editor
@@ -6,15 +7,15 @@ namespace Editor
     public class HTMLSaver
     {
         private readonly List<DocumentItem> _documentItems;
-        private readonly Dictionary<string, string> _symbols = new Dictionary<string, string>
+        private readonly List<Tuple<string, string>> _symbols = new List<Tuple<string, string>>
         {
-            { "&", "&amp;" },
-            { "<", "&lt;" },
-            { ">", "&gt;" },
-            { "'", "&apos;" },
-            { "\"", "&quot;" }
+            new Tuple<string, string>("&", "&amp;"),
+            new Tuple<string, string>("<", "&lt;"),
+            new Tuple<string, string>(">", "&gt;"),
+            new Tuple<string, string>("'", "&apos;"),
+            new Tuple<string, string>("\"", "&quot;")
         };
-
+        
         public HTMLSaver(List<DocumentItem> documentItems)
         {
             _documentItems = documentItems;
@@ -47,10 +48,10 @@ namespace Editor
         private string ConvertHtmlSymbols(string str)
         {
             if (str != null)
-            {
-                foreach (KeyValuePair<string, string> symbol in _symbols)
+            { 
+                foreach (var symbol in _symbols)
                 {
-                    str = str.Replace(symbol.Key, symbol.Value);
+                    str = str.Replace(symbol.Item1, symbol.Item2);
                 }
             }
             return str;

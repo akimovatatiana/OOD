@@ -1,5 +1,4 @@
-﻿using Editor;
-using Editor.Commands;
+﻿using Editor.Commands;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace EditorTests.CommandsTests
@@ -10,7 +9,7 @@ namespace EditorTests.CommandsTests
         [TestMethod]
         public void Execute_ReplaceTextCommand_WithNewText_ShouldReplacePrevTextFromParagraph()
         {
-            var paragraph = new Paragraph()
+            var paragraph = new TestText()
             {
                 Text = "Old text"
             };
@@ -25,7 +24,7 @@ namespace EditorTests.CommandsTests
         public void Unexecute_ReplaceTextCommand_ShouldReturnPrevTextToParagraph()
         {
             var prevText = "Old text";
-            var paragraph = new Paragraph()
+            var paragraph = new TestText()
             {
                 Text = prevText
             };

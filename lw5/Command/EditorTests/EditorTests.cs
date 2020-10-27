@@ -193,7 +193,7 @@ namespace EditorTests
 				" insertParagraph: Insert paragraph <position>|end <text>\r\n" +
 				" setTitle: Set title of document <title>\r\n" +
 				" list: Show document as list\r\n" +
-				" replace: Replace text in paragraph <position>|end <text>\r\n" +
+				" replace: Replace text in paragraph <position> <text>\r\n" +
 				" delete: Delete item <position>\r\n" +
 				" help: Show help\r\n" +
 				" exit: Exit programm\r\n" +

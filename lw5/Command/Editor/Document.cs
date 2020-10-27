@@ -7,13 +7,18 @@ namespace Editor
     public class Document : IDocument
     {
         private readonly List<DocumentItem> _documentItems = new List<DocumentItem>();
-        public string Title { get; set; }
+        private Title _title = new Title();
         public int ItemsCount => _documentItems.Count;
         private readonly History _history = new History();
 
         public void SetTitle(string title)
         {
-            _history.AddAndExecuteCommand(new SetTitleCommand(this, title));
+            _history.AddAndExecuteCommand(new ReplaceTextCommand(_title, title));
+        }
+
+        public string GetTitle()
+        {
+            return _title.Text;
         }
 
         public bool CanRedo()
@@ -39,7 +44,7 @@ namespace Editor
         public void Save(string path)
         {
             var htmlSaver = new HTMLSaver(_documentItems);
-            htmlSaver.Save(path, Title);
+            htmlSaver.Save(path, GetTitle());
         }
 
         public IParagraph InsertParagraph(string text, int? position = null)
@@ -49,7 +54,7 @@ namespace Editor
                 throw new IndexOutOfRangeException($"Invalid position: {position}. Cannot insert paragraph.");
             }
 
-            var paragraph = new Paragraph { Text = text };
+            var paragraph = new Paragraph(_history, text);
             _history.AddAndExecuteCommand(new InsertParagraphCommand(_documentItems, paragraph, position));
             return paragraph;
         }
@@ -67,19 +72,6 @@ namespace Editor
         public DocumentItem GetItem(int index)
         {
             return (index >= ItemsCount || index < 0) ? throw new IndexOutOfRangeException($"There is no item by {index} index.") : _documentItems[index];
-        }
-
-        public void ReplaceText(string text, int position)
-        {
-            var item = GetItem(position).Paragraph;
-            if (item is Paragraph)
-            {
-                _history.AddAndExecuteCommand(new ReplaceTextCommand(item, text));
-            }
-            else
-            {
-                throw new IndexOutOfRangeException($"There is no paragraph at {position} position");
-            }
         }
     }
 }

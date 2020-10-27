@@ -13,8 +13,8 @@ namespace EditorTests
         public void CanUndo_WithIndexGreaterThanZero_ShouldReturnTrue()
         {
             var history = new History();
-            var document = new Document();
-            var command = new SetTitleCommand(document, "title");
+            var text = new TestText();
+            var command = new ReplaceTextCommand(text, "text");
             history.AddAndExecuteCommand(command);
             Assert.IsTrue(history.CanUndo());
         }
@@ -30,8 +30,8 @@ namespace EditorTests
         public void CanRedo_WithValidIndex_ShouldReturnTrue()
         {
             var history = new History();
-            var document = new Document();
-            var command = new SetTitleCommand(document, "title");
+            var text = new TestText();
+            var command = new ReplaceTextCommand(text, "text");
             history.AddAndExecuteCommand(command);
             history.Undo();
             Assert.IsTrue(history.CanRedo());
@@ -48,8 +48,8 @@ namespace EditorTests
         public void Undo_WithIndexGreaterThanZero_ShouldUndoCommand()
         {
             var history = new History();
-            var document = new Document();
-            var command = new SetTitleCommand(document, "title");
+            var text = new TestText();
+            var command = new ReplaceTextCommand(text, "text");
             history.AddAndExecuteCommand(command);
             Assert.IsTrue(history.CanUndo());
             history.Undo();
@@ -67,8 +67,8 @@ namespace EditorTests
         public void Redo_WithValidIndex_ShouldRedoCommand()
         {
             var history = new History();
-            var document = new Document();
-            var command = new SetTitleCommand(document, "title");
+            var text = new TestText();
+            var command = new ReplaceTextCommand(text, "text");
             history.AddAndExecuteCommand(command);
             history.Undo();
             Assert.IsTrue(history.CanRedo());
@@ -87,8 +87,8 @@ namespace EditorTests
         public void AddAndExecuteCommand_WithElevenCommands_ShouldRemoveFirstCommand()
         {
             var history = new History();
-            var document = new Document();
-            var command = new SetTitleCommand(document, "title");
+            var text = new TestText();
+            var command = new ReplaceTextCommand(text, "text");
             history.AddAndExecuteCommand(command);
             history.AddAndExecuteCommand(command);
             history.AddAndExecuteCommand(command);
@@ -106,16 +106,12 @@ namespace EditorTests
         public void AddAndExecuteCommand_With_ShouldRemoveFirstCommand()
         {
             var history = new History();
-            var document = new Document();
             var items = new List<DocumentItem>();
-            var paragraph = new Paragraph()
-            {
-                Text = "text"
-            };
-            var command1 = new SetTitleCommand(document, "title");
-            var command2 = new InsertParagraphCommand(items, paragraph, 0);
+            var paragraph = new Paragraph(history, "text");
+            var command1 = new InsertParagraphCommand(items, paragraph, 0);
+            var command2 = new InsertParagraphCommand(items, paragraph, 1);
             var command3 = new InsertParagraphCommand(items, paragraph, 1);
-            var command4 = new InsertParagraphCommand(items, paragraph, 1);
+            var command4 = new InsertParagraphCommand(items, paragraph, 2);
             history.AddAndExecuteCommand(command1);
             history.AddAndExecuteCommand(command2);
             history.AddAndExecuteCommand(command3);

@@ -2,13 +2,12 @@
 {
     public interface IDocument
     {
-        string Title { get; set; }
+        string GetTitle();
         void SetTitle(string title);
         IParagraph InsertParagraph(string text, int? position = null);
         int ItemsCount { get; }
         DocumentItem GetItem(int index);
         void DeleteItem(int position);
-        void ReplaceText(string text, int position);
         bool CanUndo();
         void Undo();
         bool CanRedo();

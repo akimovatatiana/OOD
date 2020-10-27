@@ -13,10 +13,10 @@ namespace EditorTests.CommandsTests
         {
             var documentItems = new List<DocumentItem>()
             { 
-                new DocumentItem(new Paragraph()),
-                new DocumentItem(new Paragraph())
+                new DocumentItem(new TestParagraph()),
+                new DocumentItem(new TestParagraph())
             };
-            var paragraph = new Paragraph();
+            var paragraph = new TestParagraph();
             var command = new InsertParagraphCommand(documentItems, paragraph, null);
             command.Execute();
             Assert.AreEqual(paragraph, documentItems[2].Paragraph);
@@ -27,10 +27,10 @@ namespace EditorTests.CommandsTests
         {
             var documentItems = new List<DocumentItem>()
             {
-                new DocumentItem(new Paragraph()),
-                new DocumentItem(new Paragraph())
+                new DocumentItem(new TestParagraph()),
+                new DocumentItem(new TestParagraph())
             };
-            var paragraph = new Paragraph();
+            var paragraph = new TestParagraph();
             var command = new InsertParagraphCommand(documentItems, paragraph, 1);
             command.Execute();
             Assert.AreEqual(paragraph, documentItems[1].Paragraph);
@@ -39,12 +39,12 @@ namespace EditorTests.CommandsTests
         [TestMethod]
         public void Unexecute_InsertParagraphCommand_WithSettedPosition_ShouldInsertParagraph()
         {
-            var previousParagraph = new Paragraph();
+            var previousParagraph = new TestParagraph();
             var documentItems = new List<DocumentItem>()
             {
                 new DocumentItem(previousParagraph)
             };
-            var paragraph = new Paragraph();
+            var paragraph = new TestParagraph();
             var command = new InsertParagraphCommand(documentItems, paragraph, 0);
             command.Execute();
             Assert.AreEqual(paragraph, documentItems[0].Paragraph);
@@ -56,12 +56,12 @@ namespace EditorTests.CommandsTests
         [TestMethod]
         public void Unexecute_InsertParagraphCommand_WithEndPosition_ShouldInsertParagraph()
         {
-            var previousParagraph = new Paragraph();
+            var previousParagraph = new TestParagraph();
             var documentItems = new List<DocumentItem>()
             {
                 new DocumentItem(previousParagraph)
             };
-            var paragraph = new Paragraph();
+            var paragraph = new TestParagraph();
             var command = new InsertParagraphCommand(documentItems, paragraph, null);
             command.Execute();
             Assert.AreEqual(paragraph, documentItems[1].Paragraph);

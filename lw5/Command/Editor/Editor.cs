@@ -19,7 +19,7 @@ namespace Editor
             _menu.AddItem("insertParagraph", "Insert paragraph <position>|end <text>", InsertParagraph);
             _menu.AddItem("setTitle", "Set title of document <title>", SetTitle);
             _menu.AddItem("list", "Show document as list", ShowList);
-            _menu.AddItem("replace", "Replace text in paragraph <position>|end <text>", ReplaceText);
+            _menu.AddItem("replace", "Replace text in paragraph <position> <text>", ReplaceText);
             _menu.AddItem("delete", "Delete item <position>", DeleteItem);
             _menu.AddItem("help", "Show help", ShowInstructions);
             _menu.AddItem("exit", "Exit programm", Exit);
@@ -70,7 +70,15 @@ namespace Editor
             {
                 int position = int.Parse(args[1]);
                 var text = string.Join(" ", args.Skip(2));
-                _document.ReplaceText(text, position);
+                var item = _document.GetItem(position).Paragraph;
+                if (item is Paragraph)
+                {
+                    item.SetText(text);
+                }
+                else
+                {
+                    _textWriter.WriteLine($"There is no paragraph at {position} position");
+                }
             }
         }
 
@@ -109,7 +117,7 @@ namespace Editor
 
         private void ShowList(string[] args)
         {
-            _textWriter.WriteLine($"Title: {_document.Title}");
+            _textWriter.WriteLine($"Title: {_document.GetTitle()}");
             for (var i = 0; i < _document.ItemsCount; i++)
             {
                 var item = _document.GetItem(i);

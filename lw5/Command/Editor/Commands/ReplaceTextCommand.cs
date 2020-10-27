@@ -2,13 +2,13 @@
 {
     public class ReplaceTextCommand : AbstractCommand
     {
-        private readonly IParagraph _paragraph;
-        private string _text;
+        private string _newValue = "";
+        private readonly IText _text;
 
-        public ReplaceTextCommand(IParagraph paragraph, string text)
+        public ReplaceTextCommand(IText text, string newValue)
         {
-            _paragraph = paragraph;
             _text = text;
+            _newValue = newValue;
         }
 
         protected override void DoExecute()
@@ -23,9 +23,9 @@
 
         private void Swap()
         {
-            var temp = _paragraph.Text;
-            _paragraph.Text = _text;
-            _text = temp;
+            var temp = _text.Text;
+            _text.Text = _newValue;
+            _newValue = temp;
         }
     }
 }

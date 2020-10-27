@@ -13,8 +13,8 @@ namespace EditorTests.CommandsTests
         {
             var documentItems = new List<DocumentItem>
             { 
-                new DocumentItem(new Paragraph()),
-                new DocumentItem(new Paragraph())
+                new DocumentItem(new TestParagraph()),
+                new DocumentItem(new TestParagraph())
             };
             var command = new DeleteItemCommand(documentItems, 1);
             command.Execute();
@@ -27,8 +27,8 @@ namespace EditorTests.CommandsTests
         {
             var documentItems = new List<DocumentItem>
             {
-                new DocumentItem(new Paragraph()),
-                new DocumentItem(new Paragraph())
+                new DocumentItem(new TestParagraph()),
+                new DocumentItem(new TestParagraph())
             };
             var command = new DeleteItemCommand(documentItems, 1);
             command.Execute();
