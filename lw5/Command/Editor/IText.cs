@@ -2,6 +2,6 @@
 {
     public interface IText
     {
-        string Text { get; set; }
+        string Value { get; set; }
     }
 }

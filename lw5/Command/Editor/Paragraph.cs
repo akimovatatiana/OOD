@@ -2,20 +2,22 @@
 
 namespace Editor
 {
-    public class Paragraph : IParagraph, IText
+    public class Paragraph : IParagraph
     {
-        public string Text { get; set; }
-        private readonly History _history;
+        private readonly IText _text = new Text();
+        private readonly IHistory _history;
 
-        public Paragraph(History history, string text)
+        public string Text => _text.Value;
+
+        public Paragraph(IHistory history, string text)
         {
             _history = history;
-            Text = text;
+            _text.Value = text;
         }
 
         public void SetText(string text)
         {
-            _history.AddAndExecuteCommand(new ReplaceTextCommand(this, text));
+            _history.AddAndExecuteCommand(new ReplaceTextCommand(_text, text));
         }
     }
 }

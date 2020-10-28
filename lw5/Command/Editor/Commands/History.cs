@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Editor.Commands
 {
-    public class History
+    public class History : IHistory
     {
         private readonly List<ICommand> _commands = new List<ICommand>();
         private int _nextCommandIndex = 0;

@@ -13,7 +13,7 @@ namespace EditorTests
         public void CanUndo_WithIndexGreaterThanZero_ShouldReturnTrue()
         {
             var history = new History();
-            var text = new TestText();
+            var text = new Text();
             var command = new ReplaceTextCommand(text, "text");
             history.AddAndExecuteCommand(command);
             Assert.IsTrue(history.CanUndo());
@@ -30,7 +30,7 @@ namespace EditorTests
         public void CanRedo_WithValidIndex_ShouldReturnTrue()
         {
             var history = new History();
-            var text = new TestText();
+            var text = new Text();
             var command = new ReplaceTextCommand(text, "text");
             history.AddAndExecuteCommand(command);
             history.Undo();
@@ -48,7 +48,7 @@ namespace EditorTests
         public void Undo_WithIndexGreaterThanZero_ShouldUndoCommand()
         {
             var history = new History();
-            var text = new TestText();
+            var text = new Text();
             var command = new ReplaceTextCommand(text, "text");
             history.AddAndExecuteCommand(command);
             Assert.IsTrue(history.CanUndo());
@@ -67,7 +67,7 @@ namespace EditorTests
         public void Redo_WithValidIndex_ShouldRedoCommand()
         {
             var history = new History();
-            var text = new TestText();
+            var text = new Text();
             var command = new ReplaceTextCommand(text, "text");
             history.AddAndExecuteCommand(command);
             history.Undo();
@@ -87,7 +87,7 @@ namespace EditorTests
         public void AddAndExecuteCommand_WithElevenCommands_ShouldRemoveFirstCommand()
         {
             var history = new History();
-            var text = new TestText();
+            var text = new Text();
             var command = new ReplaceTextCommand(text, "text");
             history.AddAndExecuteCommand(command);
             history.AddAndExecuteCommand(command);

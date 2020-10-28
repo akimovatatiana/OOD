@@ -2,7 +2,7 @@
 {
     public class ReplaceTextCommand : AbstractCommand
     {
-        private string _newValue = "";
+        private string _newValue;
         private readonly IText _text;
 
         public ReplaceTextCommand(IText text, string newValue)
@@ -23,8 +23,8 @@
 
         private void Swap()
         {
-            var temp = _text.Text;
-            _text.Text = _newValue;
+            var temp = _text.Value;
+            _text.Value = _newValue;
             _newValue = temp;
         }
     }

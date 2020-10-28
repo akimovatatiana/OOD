@@ -7,7 +7,7 @@ namespace Editor
     public class Document : IDocument
     {
         private readonly List<DocumentItem> _documentItems = new List<DocumentItem>();
-        private Title _title = new Title();
+        private IText _title = new Text();
         public int ItemsCount => _documentItems.Count;
         private readonly History _history = new History();
 
@@ -18,7 +18,7 @@ namespace Editor
 
         public string GetTitle()
         {
-            return _title.Text;
+            return _title.Value;
         }
 
         public bool CanRedo()

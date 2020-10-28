@@ -1,6 +1,6 @@
 ﻿namespace Editor
 {
-    public interface IParagraph
+    public interface IParagraph 
     {
         string Text { get; }
         void SetText(string text);
