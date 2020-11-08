@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GumballMachine\GumballMachine.csproj" />
+    <ProjectReference Include="..\GumballMachine\GumballMachineWithState.csproj" />
   </ItemGroup>
 
 </Project>

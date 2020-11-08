@@ -19,7 +19,7 @@ namespace GumballMachine
             _noQuarterState = new NoQuarterState(this);
             _hasQuaterState = new HasQuaterState(this);
             _count = numBalls;
-            _state = (numBalls > 0) ? _noQuarterState : (IState)_soldOutState;
+            _state = (_count > 0) ? _noQuarterState : (IState)_soldOutState;
         }
 
         public void EjectQuarter()

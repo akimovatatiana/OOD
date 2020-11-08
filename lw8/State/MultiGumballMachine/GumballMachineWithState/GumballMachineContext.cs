@@ -22,7 +22,7 @@ namespace MultiGumballMachine.GumballMachineWithState
             _hasQuaterState = new HasQuaterState(this);
             _maxQuarterState = new MaxQuarterState(this);
             _count = numBalls;
-            _state = (numBalls > 0) ? _noQuarterState : (IState)_soldOutState;
+            _state = (_count > 0) ? _noQuarterState : (IState)_soldOutState;
         }
 
         public void EjectQuarter()
