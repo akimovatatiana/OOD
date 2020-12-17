@@ -65,7 +65,7 @@ namespace Slides.Groups
             {
                 return null;
             }
-            bool wasNotNullFrame = false;
+
             double left = double.MaxValue;
             double top = double.MaxValue;
             double width = double.MinValue;
@@ -80,34 +80,6 @@ namespace Slides.Groups
                 height = Math.Max(height, shapeFrame.Height);
             }
             return new Rect<double>(left, top, width - left, height - top);
-        }
-
-        private Rect<double>? CalculateShapesFrame()
-        {
-            bool wasNotNullFrame = false;
-            double left = double.MaxValue;
-            double top = double.MaxValue;
-            double maxXCor = double.MinValue;
-            double maxYCor = double.MinValue;
-
-            foreach (var shape in _shapes)
-            {
-                if (shape.GetFrame() == null)
-                {
-                    continue;
-                }
-                wasNotNullFrame = true;
-                left = shape.GetFrame().Value.Left.CompareTo(left) > 0 ? left : shape.GetFrame().Value.Left;
-                top = shape.GetFrame().Value.Top.CompareTo(top) > 0 ? top : shape.GetFrame().Value.Top;
-
-                var xCor = shape.GetFrame().Value.Left + shape.GetFrame().Value.Width;
-                var yCor = shape.GetFrame().Value.Top + shape.GetFrame().Value.Height;
-
-                maxXCor = maxXCor.CompareTo(xCor) > 0 ? maxXCor : xCor;
-                maxYCor = maxYCor.CompareTo(yCor) > 0 ? maxYCor : yCor;
-            }
-
-            return wasNotNullFrame ? (Rect<double>?)new Rect<double>(left, top, maxXCor - left, maxYCor - top) : null;
         }
 
         public IOutlineStyle GetOutlineStyle()
